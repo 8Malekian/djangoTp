@@ -1,0 +1,15 @@
+{% extends "gestionPersonnage/layout.html" %}
+{% block content %}
+<a href="{% url 'liste' %}" title="Liste">Retour Liste</a>
+<h1>detail</h1>
+<p>Nom : {{personnage.nom}}</p>
+<p>Classe : {{personnage.classe}}</p>
+<p>Force : {{personnage.force}}</p>
+<p>Déxterité : {{personnage.dexterite}}</p>
+<p>Constitution : {{personnage.constition}}</p>
+<p>Sagesse : {{personnage.sagesse}</p>
+<p>Poids : {{personnage.poids}</p>
+<p>User : {{personnage.user}</p>           
+<a href="{% url 'update' personnage.pk %}" title="Modifier">Modifier</a>
+<a href="{% url 'delete' perosnnage.pk %}" title="Supprimer">Supprimer</a>
+{% endblock %}
