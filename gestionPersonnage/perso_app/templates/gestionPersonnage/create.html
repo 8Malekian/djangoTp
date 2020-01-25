@@ -1,0 +1,10 @@
+{% extends "gestionPersonnage/layout.html" %}
+{% block content %}
+<h1>ajouter</h1>
+<form class="creat" method="post" action="{% url typeEnvoi %}">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="{{typeEnvoi}}">
+</form>
+<a href="{% url 'liste' %}" title="Annuler">Annuler</a>
+{% endblock %}
