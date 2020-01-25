@@ -1,7 +1,6 @@
 {% extends "gestionPersonnage/layout.html" %}
 {% block content %}
-<h1>personnages</h1>
-<a href="{% url 'create' %}">Ajouter</a>
+
 <table class="listePersonnages">
     <thead>
         <tr>
@@ -13,6 +12,7 @@
             <td>Intelligence</td>
             <td>Sagesse</td>
             <td>Charisme</td>
+            <td>Poids</td>
             <td>User</td>
             <td>Editer</td>
             <td>Supprimer</td>
@@ -32,9 +32,7 @@
             <td>{{personnage.charisme}}</td>
             <td>{{personnage.poids}}</td>
             <td>{{personnage.user}}</td>
-            <td><a href="{% url 'detail' personnage.pk %}">{{personnage.nom}}</a></td>
-            <td><a href="{% url 'update' personnage.pk %}">modifier</a></td>
-            <td><a href="{% url 'delete' personnage.pk %}">supprimer</a></td>
+           
         </tr>
         {% endfor %}
     </tbody>
