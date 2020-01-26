@@ -1,18 +1,11 @@
 {% extends "gestionPersonnage/layout.html" %}
 {% block content %}
-<a href="{% url 'create' %}">Ajouter</a>
+<a href="{% url 'create' %}">Nouveau personnage</a>
 <table class="listePersonnages">
     <thead>
         <tr>
             <td>Nom</td>
             <td>classe</td>
-            <td>Force</td>
-            <td>Dextérité</td>
-            <td>Constitution</td>
-            <td>Intelligence</td>
-            <td>Sagesse</td>
-            <td>Charisme</td>
-            <td>Poids</td>
             <td>User</td>
             <td>Editer</td>
             <td>Supprimer</td>
@@ -21,16 +14,9 @@
     <tbody>
         {% for personnage in personnages %}
         <tr>
-            
-            <td>{{personnage.Nom}}</td>
-            <td>{{personnage.classe}}</td>
-            <td>{{personnage.force}}</td>
-            <td>{{personnage.dexterite}}</td>
-            <td>{{personnage.constition}}</td>
-            <td>{{personnage.intelligence}}</td>
-            <td>{{personnage.sagesse}}</td>
-            <td>{{personnage.charisme}}</td>
-            <td>{{personnage.poids}}</td>
+            <td><a href="{% url 'detail' personnage.pk %}">{{personnage.nom}}</a></td>
+            <td>{{personnage.nom}}</td>
+            <td>{{personnage.classe}}</td>            
             <td>{{personnage.user}}</td>
            
         </tr>
