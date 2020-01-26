@@ -40,7 +40,7 @@ def create(request):
         if context["form"].is_valid():
             c = context["form"].save()
     return HttpResponse(template.render(context,request))
-    
+
 def update(request,pk):
     personnage = get_object_or_404(Personnage,pk=pk)
     form = PersonnageModelForm(request.POST or None, instance=personnage)
@@ -48,4 +48,13 @@ def update(request,pk):
     context = {"form":form,"typeEnvoi":"update","pk":pk}
     if form.is_valid():
         s = form.save()
+    return HttpResponse(template.render(context,request))
+def delete(request,pk):
+    template = loader.get_template("gestionPersonnage/liste.html")
+    personnage = get_object_or_404(Personnage,pk=pk)
+    context = {}
+    Personnage.objects.filter(pk=pk).delete()
+    personnages = Personnage.objects.all()
+    context = {"personnages":personnages}
+    
     return HttpResponse(template.render(context,request))

@@ -18,6 +18,7 @@
             <td>{{personnage.classe}}</td>            
             <td>{{personnage.user}}</td>
             <td><a href="{% url 'update' personnage.pk %}" title="Modifier">Edition</a></td>
+            <td><a href="{% url 'delete' personnage.pk %}"title="Supprimer">suppression</a></td>
         </tr>
         {% endfor %}
     </tbody>
