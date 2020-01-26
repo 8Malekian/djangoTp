@@ -38,7 +38,14 @@ def create(request):
         context={"form":PersonnageModelForm(request.POST),
         "typeEnvoi":"create"}
         if context["form"].is_valid():
-            s = context["form"].save()
-        
-
+            c = context["form"].save()
+    return HttpResponse(template.render(context,request))
+    
+def update(request,pk):
+    personnage = get_object_or_404(Personnage,pk=pk)
+    form = PersonnageModelForm(request.POST or None, instance=personnage)
+    template = loader.get_template("gestionPersonnage/update.html")
+    context = {"form":form,"typeEnvoi":"update","pk":pk}
+    if form.is_valid():
+        s = form.save()
     return HttpResponse(template.render(context,request))

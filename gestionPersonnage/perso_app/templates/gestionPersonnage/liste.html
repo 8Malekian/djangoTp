@@ -14,11 +14,10 @@
     <tbody>
         {% for personnage in personnages %}
         <tr>
-            <td><a href="{% url 'detail' personnage.pk %}">{{personnage.nom}}</a></td>
-            <td>{{personnage.nom}}</td>
+            <td><a href="{% url 'detail' personnage.pk %}">{{personnage.nom}}</a></td>            
             <td>{{personnage.classe}}</td>            
             <td>{{personnage.user}}</td>
-           
+            <td><a href="{% url 'update' personnage.pk %}" title="Modifier">Edition</a></td>
         </tr>
         {% endfor %}
     </tbody>
